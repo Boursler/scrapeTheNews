@@ -1,5 +1,6 @@
 var axios = require("axios");
 var cheerio = require("cheerio");
+var db = require("./../models");
 module.exports = function (app) {
 	//Headline - the title of the article
 
@@ -26,6 +27,19 @@ module.exports = function (app) {
 				result.link = articleInfo.attr("href");
 				result.summary = $(this).children(".summary").text();
 				console.log(result.title + result.link + result.summary);
+
+				db.Article.findOneAndUpdate(result, result, {
+					upsert: true,
+					setDefaultsOnInsert: true
+				}, function (error, result, response) {
+					// View the added result in the console
+					if (error)
+						console.log(error);
+
+					console.log(result);
+				});
+
+
 			});
 
 		});

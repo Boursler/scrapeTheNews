@@ -8,7 +8,10 @@ var ArticleSchema = new Schema({
 	// `title` is required and of type String
 	title: {
 		type: String,
-		required: true
+		required: true,
+
+		trim: true,
+
 	},
 	// `link` is required and of type String
 	link: {
@@ -17,7 +20,8 @@ var ArticleSchema = new Schema({
 	},
 	summary: {
 		type: String,
-		required: false
+		required: false,
+		trim: true
 
 	},
 	// `note` is an object that stores a Note id
