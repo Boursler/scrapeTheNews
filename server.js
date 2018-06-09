@@ -2,7 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-
+var path = require("path");
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
 // It works on the client and on the server
@@ -23,7 +23,7 @@ app.engine("handlebars", exphbs({
 	defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
-
+app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
@@ -37,7 +37,7 @@ app.use(logger("dev"));
 // Use body-parser for handling form submissions
 
 // Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
+app.use("/public", express.static("public"));
 
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost/newsScraper");
