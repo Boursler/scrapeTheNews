@@ -105,7 +105,13 @@ module.exports = function (app) {
 		db.Comment.findOneAndRemove({
 			__id: req.params.id
 		}, function (error, doc) {
-			console.log(error);
+			if (error)
+				console.log(error);
+			db.Article.findOneAndRemove(doc),
+				function (error, doc) {
+					if (error)
+						console.log(error)
+				}
 		});
 	})
 
