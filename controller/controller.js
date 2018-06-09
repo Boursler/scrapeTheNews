@@ -102,11 +102,11 @@ module.exports = function (app) {
 	});
 
 	app.delete("articles/:id", function (req, res) {
-		db.Comment.deleteOne({
+		db.Comment.findOneAndRemove({
 			__id: req.params.id
-		}, function (error) {
+		}, function (error, doc) {
 			console.log(error);
-		})
+		});
 	})
 
 
