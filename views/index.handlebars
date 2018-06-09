@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Hard Times: News Scraping for the 21st Century</h2>
+		</div>
+	</div>
+	{{!-- title,link,summary --}}
+	<div class="row">
+		<div class="col-md-8">
+			<h4>Articles</h4>
+			<ul>
+				{{#each article}}
+				<div class="card">
+					<div class="card-body">
+						<li>
+							<div class="card-title">
+								<a href="{{link}}" target="_blank">{{title}}</a>
+								{{#if summary}}
+								<p class="card-text">summary</p>
+								{{/if}}
+								<button data-id="{{this.__id}}" class="btn btn-secondary">Comment</button>
+							</div>
+						</li> {{/each}}
+					</div>
+				</div>
+			</ul>
+		</div>
+	</div>
+</div>
