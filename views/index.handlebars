@@ -18,7 +18,10 @@
 							{{#if summary}}
 							<p class="card-text">{{summary}}</p>
 							{{/if}}
-							<button data-id="{{this.__id}}" class="btn btn-secondary">Comment</button>
+							<div class="row">
+								<button data-id="{{_id}}" class="btn btn-secondary" data-toggle="collapse" type="button" data-target="#collapseExample">Comment</button>
+								<button data-id="{{_id}}" class="btn btn-danger">Delete</button>
+							</div>
 						</div>
 					</div>
 				</div>
