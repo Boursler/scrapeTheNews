@@ -18,11 +18,19 @@
 							{{#if summary}}
 							<p class="card-text">{{summary}}</p>
 							{{/if}}
-							<div class="row">
-								<button data-id="{{_id}}" class="btn btn-secondary" data-toggle="collapse" type="button" data-target="#collapseExample">Comment</button>
-								<button data-id="{{_id}}" class="btn btn-danger">Delete</button>
-							</div>
+							<form>
+								<div class="form-group ">
+									<label for="commentsArea">Leave a comment here.</label>
+									<textarea class="form-control" name="comment" data-textId="{{_id}}" rows="3"></textarea>
+								</div>
+								<div class="row">
+									<button data-id="{{_id}}" class="btn btn-secondary" type="button">Comment</button>
+									<button data-id="{{_id}}" class="btn btn-danger">Delete</button>
+								</div>
+							</form>
+
 						</div>
+
 					</div>
 				</div>
 				{{/each}}

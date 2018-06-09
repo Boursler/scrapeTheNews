@@ -55,6 +55,7 @@ module.exports = function (app) {
 				var hbsObject = {
 					article: dbArticle
 				}
+				console.log(JSON.stringify(hbsObject));
 				res.render("index", hbsObject);
 			})
 			.catch(function (err) {
