@@ -12,18 +12,17 @@
 				{{#each article}}
 				<div class="card">
 					<div class="card-body">
-						<li>
-							<div class="card-title">
-								<a href="{{link}}" target="_blank">{{title}}</a>
-								{{#if summary}}
-								<p class="card-text">summary</p>
-								{{/if}}
-								<button data-id="{{this.__id}}" class="btn btn-secondary">Comment</button>
-							</div>
-						</li> {{/each}}
+
+						<div class="card-title">
+							<a href="{{link}}" target="_blank">{{title}}</a>
+							{{#if summary}}
+							<p class="card-text">{{summary}}</p>
+							{{/if}}
+							<button data-id="{{this.__id}}" class="btn btn-secondary">Comment</button>
+						</div>
 					</div>
 				</div>
-			</ul>
+				{{/each}}
 		</div>
 	</div>
 </div>
