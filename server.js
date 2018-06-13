@@ -40,7 +40,9 @@ app.use(logger("dev"));
 app.use("/public", express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/newsScraper");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 
 // Start the server
